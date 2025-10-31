@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Musical - JavaScript</title>
+    <link rel="stylesheet" href="css/Ejercicio1.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Lista Musical de JavaScript</h1>
+            <p>Reproductor con localStorage y sessionStorage</p>
+        </header>
+
+        <!-- SECCIÓN 1: Formulario para agregar canciones -->
+        <section class="form-section">
+            <h2>➕ Agregar Nueva Canción</h2>
+            <form id="songForm">
+                <div class="form-group">
+                    <label for="cancion">📀 Nombre de la Canción</label>
+                    <input type="text" id="cancion" name="cancion" placeholder="Ej: Courtesy Call" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cantante">🎤 Nombre del Cantante</label>
+                    <input type="text" id="cantante" name="cantante" placeholder="Ej: Thousand Foot Krutch" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="discografica">🏢 Discográfica</label>
+                    <input type="text" id="discografica" name="discografica" placeholder="Se llenará automáticamente" readonly>
+                    <small class="auto-field">Campo automático</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="duracion">⏱️ Duración</label>
+                    <input type="text" id="duracion" name="duracion" placeholder="Se detectará del archivo" readonly>
+                    <small class="auto-field">Campo automático</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="nacionalidad">🌎 Nacionalidad</label>
+                    <input type="text" id="nacionalidad" name="nacionalidad" placeholder="Ej: Canadiense" required>
+                </div>
+
+                <!-- Selector de archivos -->
+                <div class="form-group">
+                    <label for="audioFile">🎵 Seleccionar Archivo de Audio</label>
+                    <input type="file" id="audioFile" name="audioFile" accept=".mp3,.wav,.ogg" required>
+                    <small class="file-help">Formatos aceptados: MP3, WAV, OGG (Máx. 10MB)</small>
+                    <div id="fileInfo" class="file-info"></div>
+                </div>
+
+                <button type="submit" class="btn-guardar">💾 Guardar Canción</button>
+            </form>
+        </section>
+
+        <!-- Las otras secciones se mantienen igual -->
+        <section class="player-section">
+            <h2>🎧 Reproductor de Audio</h2>
+            <div class="player-controls">
+                <div class="song-info">
+                    <strong>🎵 Canción: </strong><span id="currentSong">Selecciona una canción</span>
+                </div>
+                
+                <div class="time-display">
+                    <strong>⏰ Tiempo: </strong><span id="currentTime">00:00 / 00:00</span>
+                </div>
+
+                <div class="progress-container">
+                    <strong>📊 Progreso: </strong>
+                    <input type="range" id="progressBar" min="0" max="100" value="0" class="progress-bar">
+                </div>
+
+                <div class="control-buttons">
+                    <button id="btnPlay" class="btn-control">▶ Play</button>
+                    <button id="btnPause" class="btn-control">⏸ Pause</button>
+                    <button id="btnStop" class="btn-control">⏹ Stop</button>
+                </div>
+
+                <div class="volume-controls">
+                    <button id="btnVolumeUp" class="btn-control">🔊 Subir</button>
+                    <button id="btnVolumeDown" class="btn-control">🔉 Bajar</button>
+                    <button id="btnMute" class="btn-control">🔇 Silenciar</button>
+                    <span class="volume-display">Volumen: <span id="volumeLevel">50%</span></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="songs-section">
+            <h2>📋 Biblioteca Musical</h2>
+            <table id="songsTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Canción</th>
+                        <th>Cantante</th>
+                        <th>Discográfica</th>
+                        <th>Duración</th>
+                        <th>Nacionalidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="songsTableBody">
+                    <!-- Las canciones se cargan aquí automáticamente con JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="js/Ejercicio1.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Usuarios - JavaScript</title>
+    <link rel="stylesheet" href="css/Ejercicio2.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 CRUD de Usuarios</h1>
+            <p>Gestión completa de usuarios con API REST</p>
+        </header>
+
+        <!-- SECCIÓN 1: Formulario para Crear/Actualizar Usuario -->
+        <section class="form-section">
+            <h2 id="formTitle">➕ Crear Nuevo Usuario</h2>
+            <form id="userForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">👤 Nombre Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="username">🔹 Nombre de Usuario</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">📧 Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">📞 Teléfono</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="street">🏠 Calle</label>
+                        <input type="text" id="street" name="street" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="city">🏙️ Ciudad</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="zipcode">📮 Código Postal</label>
+                        <input type="text" id="zipcode" name="zipcode" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website">🌐 Sitio Web</label>
+                        <input type="url" id="website" name="website" required>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" class="btn-primary">💾 Crear Usuario</button>
+                    <button type="button" id="cancelBtn" class="btn-secondary" style="display: none;">❌ Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- SECCIÓN 2: Lista de Usuarios -->
+        <section class="users-section">
+            <h2>👥 Lista de Usuarios</h2>
+            <div class="users-stats">
+                <span id="usersCount">Cargando...</span>
+            </div>
+            
+            <div class="table-container">
+                <table id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Usuario</th>
+                            <th>Email</th>
+                            <th>Dirección</th>
+                            <th>Teléfono</th>
+                            <th>Sitio Web</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <!-- Los usuarios se cargarán aquí dinámicamente -->
+                        <tr>
+                            <td colspan="8" class="loading">🔄 Cargando usuarios...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal de Confirmación para Eliminar -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h3>⚠️ Confirmar Eliminación</h3>
+            <p>¿Estás seguro de que quieres eliminar este usuario?</p>
+            <div class="modal-actions">
+                <button id="confirmDelete" class="btn-danger">✅ Aceptar</button>
+                <button id="cancelDelete" class="btn-secondary">❌ Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/Ejercicio2.js"></script>
+</body>
+</html>
